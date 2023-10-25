@@ -18,10 +18,13 @@
 
 
 #include "RCC.h"
+#include "GPIO.h"
 
 
 int main(void)
 {
 	RCC_GPIOA_CLK_ENB();
+	GPIO_Pin_Write(GPIOA, GPIO_PIN_1, GPIO_PIN_ENABLE);
+
 	for(;;);
 }

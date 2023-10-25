@@ -158,36 +158,39 @@ typedef struct
 
 #define RCC								((RCC_TypeDef_t *)(RCC_BASE_ADDR)  )
 
-#define RCC_AHB1ENR_GPIOAEN_Pos			(0U)
-#define RCC_AHB1ENR_GPIOAEN_Msk			(0x1 << RCC_AHB1ENR_GPIOAEN_Pos)
-#define RCC_AHB1ENR_GPIOAEN				RCC_AHB1ENR_GPIOAEN_Msk
+/*
+ * Bit definitions for GPIO
+ */
+#define RCC_AHB1ENR_GPIOAEN_Pos			(0U)								// RCC AHB1ENR register GPIOAEN Bit Position
+#define RCC_AHB1ENR_GPIOAEN_Msk			(0x1 << RCC_AHB1ENR_GPIOAEN_Pos)	// RCC AHB1ENR register GPIOAEN Bit Mask
+#define RCC_AHB1ENR_GPIOAEN				RCC_AHB1ENR_GPIOAEN_Msk				// RCC AHB1ENR register GPIOAEN Bit Macro
 
-#define RCC_AHB1ENR_GPIOBEN_Pos         (1U)
-#define RCC_AHB1ENR_GPIOBEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)
-#define RCC_AHB1ENR_GPIOBEN				RCC_AHB1ENR_GPIOBEN_Msk
+#define RCC_AHB1ENR_GPIOBEN_Pos         (1U)								// RCC AHB1ENR register GPIOBEN Bit Position
+#define RCC_AHB1ENR_GPIOBEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)	// RCC AHB1ENR register GPIOBEN Bit Mask
+#define RCC_AHB1ENR_GPIOBEN				RCC_AHB1ENR_GPIOBEN_Msk				// RCC AHB1ENR register GPIOBEN Bit Macro
 
-#define RCC_AHB1ENR_GPIOCEN_Pos         (2U)
-#define RCC_AHB1ENR_GPIOCEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)
-#define RCC_AHB1ENR_GPIOCEN				RCC_AHB1ENR_GPIOBEN_Msk
+#define RCC_AHB1ENR_GPIOCEN_Pos         (2U)								// RCC AHB1ENR register GPIOCEN Bit Position
+#define RCC_AHB1ENR_GPIOCEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)	// RCC AHB1ENR register GPIOCEN Bit Mask
+#define RCC_AHB1ENR_GPIOCEN				RCC_AHB1ENR_GPIOBEN_Msk				// RCC AHB1ENR register GPIOCEN Bit Macro
 
-#define RCC_AHB1ENR_GPIODEN_Pos         (3U)
-#define RCC_AHB1ENR_GPIODEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)
-#define RCC_AHB1ENR_GPIODEN				RCC_AHB1ENR_GPIOBEN_Msk
+#define RCC_AHB1ENR_GPIODEN_Pos         (3U)								// RCC AHB1ENR register GPIODEN Bit Position
+#define RCC_AHB1ENR_GPIODEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)	// RCC AHB1ENR register GPIODEN Bit Mask
+#define RCC_AHB1ENR_GPIODEN				RCC_AHB1ENR_GPIOBEN_Msk				// RCC AHB1ENR register GPIODEN Bit Macro
 
-#define RCC_AHB1ENR_GPIOEEN_Pos         (4U)
-#define RCC_AHB1ENR_GPIOEEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)
-#define RCC_AHB1ENR_GPIOEEN				RCC_AHB1ENR_GPIOBEN_Msk
+#define RCC_AHB1ENR_GPIOEEN_Pos         (4U)								// RCC AHB1ENR register GPIOEEN Bit Position
+#define RCC_AHB1ENR_GPIOEEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)	// RCC AHB1ENR register GPIOEEN Bit Mask
+#define RCC_AHB1ENR_GPIOEEN				RCC_AHB1ENR_GPIOBEN_Msk				// RCC AHB1ENR register GPIOEEN Bit Macro
 
-#define RCC_AHB1ENR_GPIOFEN_Pos         (5U)
-#define RCC_AHB1ENR_GPIOFEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)
-#define RCC_AHB1ENR_GPIOFEN				RCC_AHB1ENR_GPIOBEN_Msk
+#define RCC_AHB1ENR_GPIOFEN_Pos         (5U)								// RCC AHB1ENR register GPIOFEN Bit Position
+#define RCC_AHB1ENR_GPIOFEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)	// RCC AHB1ENR register GPIOFEN Bit Mask
+#define RCC_AHB1ENR_GPIOFEN				RCC_AHB1ENR_GPIOBEN_Msk				// RCC AHB1ENR register GPIOFEN Bit Macro
 
-#define RCC_AHB1ENR_GPIOGEN_Pos         (6U)
-#define RCC_AHB1ENR_GPIOGEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)
-#define RCC_AHB1ENR_GPIOGEN				RCC_AHB1ENR_GPIOBEN_Msk
+#define RCC_AHB1ENR_GPIOGEN_Pos         (6U)								// RCC AHB1ENR register GPIOGEN Bit Position
+#define RCC_AHB1ENR_GPIOGEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)	// RCC AHB1ENR register GPIOGEN Bit Mask
+#define RCC_AHB1ENR_GPIOGEN				RCC_AHB1ENR_GPIOBEN_Msk				// RCC AHB1ENR register GPIOGEN Bit Macro
 
-#define RCC_AHB1ENR_GPIOHEN_Pos         (7U)
-#define RCC_AHB1ENR_GPIOHEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)
-#define RCC_AHB1ENR_GPIOHEN				RCC_AHB1ENR_GPIOBEN_Msk
+#define RCC_AHB1ENR_GPIOHEN_Pos         (7U)								// RCC AHB1ENR register GPIOHEN Bit Position
+#define RCC_AHB1ENR_GPIOHEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)	// RCC AHB1ENR register GPIOHEN Bit Mask
+#define RCC_AHB1ENR_GPIOHEN				RCC_AHB1ENR_GPIOBEN_Msk				// RCC AHB1ENR register GPIOHEN Bit Macro
 
 #endif /* INC_STM32F446XX_H_ */
