@@ -11,6 +11,12 @@
 #include <stdint.h>
 
 #define __OI volatile
+
+#define SET_BIT(REG, BIT)				( (REG) |=  (BIT) )
+#define CLEAR_BIT(REG, BIT)				( (REG) &= ~(BIT) )
+#define READ_BIT(REG, BIT)			    ( (REG) &   (BIT) )
+#define UNUSED(x)						(void)x
+
 /*
  * MEMORY BASE ADDRESS
  */
@@ -24,7 +30,7 @@
  */
 
 #define PERIPH_BASE_ADDR  			    (0x40000000UL)
-#define APB1_BASE_ADDR				    PERIPH_BASE_ADDR
+#define APB1_BASE_ADDR				    (PERIPH_BASE_ADDR)
 #define APB2_BASE_ADDR		            (PERIPH_BASE_ADDR + 0x00010000UL)
 #define AHB1_BASE_ADDR					(PERIPH_BASE_ADDR + 0x00020000UL)
 #define AHB2_BASE_ADDR					(PERIPH_BASE_ADDR + 0x10000000UL)
@@ -33,43 +39,43 @@
  * APB1 Bus Perhipherals Base Adresses
  */
 
-#define TIM2_BASE_ADDR 					(APB1_BASE_ADDR)             	/*Timer 2 Base Adress	*/
-#define TIM3_BASE_ADDR					(APB1_BASE_ADDR + 0x0400UL)	 	/*Timer 3 Base Adress	*/
-#define TIM4_BASE_ADDR					(APB1_BASE_ADDR + 0x0800UL)	 	/*Timer 4 Base Adress	*/
-#define TIM5_BASE_ADDR					(APB1_BASE_ADDR + 0x0C00UL)	 	/*Timer 5 Base Adress	*/
+#define TIM2_BASE_ADDR 					(APB1_BASE_ADDR)             	/*Timer 2 	Base Address	*/
+#define TIM3_BASE_ADDR					(APB1_BASE_ADDR + 0x0400UL)	 	/*Timer 3 	Base Address	*/
+#define TIM4_BASE_ADDR					(APB1_BASE_ADDR + 0x0800UL)	 	/*Timer 4 	Base Address	*/
+#define TIM5_BASE_ADDR					(APB1_BASE_ADDR + 0x0C00UL)	 	/*Timer 5 	Base Address	*/
 
-#define SPI2_BASE_ADDR					(APB1_BASE_ADDR + 0x3800UL)		/* Spi 2 Base Adress	*/
-#define SPI3_BASE_ADDR					(APB1_BASE_ADDR + 0x3C00UL)		/* Spi 2 Base Adress	*/
+#define SPI2_BASE_ADDR					(APB1_BASE_ADDR + 0x3800UL)		/* Spi 2 	Base Address	*/
+#define SPI3_BASE_ADDR					(APB1_BASE_ADDR + 0x3C00UL)		/* Spi 2 	Base Address	*/
 
-#define USART2_BASE_ADDR				(APB1_BASE_ADDR + 0x4400UL)		/* USART 2 Base Adress	*/
-#define USART3_BASE_ADDR				(APB1_BASE_ADDR + 0x4800UL)		/* USART 3 Base Adress	*/
-#define UART4_BASE_ADDR					(APB1_BASE_ADDR + 0x4C00UL)		/* UART 4 Base Adress	*/
-#define UART5_BASE_ADDR					(APB1_BASE_ADDR + 0x5000UL)		/* UART 5 Base Adress	*/
+#define USART2_BASE_ADDR				(APB1_BASE_ADDR + 0x4400UL)		/* USART 2 	Base Address	*/
+#define USART3_BASE_ADDR				(APB1_BASE_ADDR + 0x4800UL)		/* USART 3	Base Address	*/
+#define UART4_BASE_ADDR					(APB1_BASE_ADDR + 0x4C00UL)		/* UART 4 	Base Address	*/
+#define UART5_BASE_ADDR					(APB1_BASE_ADDR + 0x5000UL)		/* UART 5 	Base Address	*/
 
-#define I2C1_BASEE_ADDR					(APB1_BASE_ADDR + 0X5400UL) 	/* I2C 1 Base Adress	*/
-#define I2C2_BASEE_ADDR					(APB1_BASE_ADDR + 0X5800UL) 	/* I2C 2 Base Adress	*/
-#define I2C3_BASEE_ADDR					(APB1_BASE_ADDR + 0X5C00UL) 	/* I2C 3 Base Adress	*/
+#define I2C1_BASEE_ADDR					(APB1_BASE_ADDR + 0X5400UL) 	/* I2C 1 	Base Address	*/
+#define I2C2_BASEE_ADDR					(APB1_BASE_ADDR + 0X5800UL) 	/* I2C 2 	Base Address	*/
+#define I2C3_BASEE_ADDR					(APB1_BASE_ADDR + 0X5C00UL) 	/* I2C 3 	Base Address	*/
 
 /*
  * APB2 Bus Perhipherals Base Adresses
  */
 
-#define TIM1_BASE_ADDR 					(APB2_BASE_ADDR + 0x0000UL)				/*Timer 1 Base adress	*/
-#define TIM8_BASE_ADDR					(APB2_BASE_ADDR + 0x0400UL)				/*Timer 8 Base adress	*/
+#define TIM1_BASE_ADDR 					(APB2_BASE_ADDR + 0x0000UL)				/*Timer 1 	Base address	*/
+#define TIM8_BASE_ADDR					(APB2_BASE_ADDR + 0x0400UL)				/*Timer 8 	Base address	*/
 
-#define USART1_BASE_ADDR				(APB2_BASE_ADDR + 0x1000UL)				/*USART 1 Base adress	*/
-#define USART6_BASE_ADDR				(APB2_BASE_ADDR + 0x1400UL)				/*USART 6 Base adress	*/
+#define USART1_BASE_ADDR				(APB2_BASE_ADDR + 0x1000UL)				/*USART 1 	Base address	*/
+#define USART6_BASE_ADDR				(APB2_BASE_ADDR + 0x1400UL)				/*USART 6	Base address	*/
 
-#define ADC1_BASE_ADDR					(APB2_BASE_ADDR + 0x2000UL)				/*ADC 1 Base adress		*/
-#define ADC2_BASE_ADDR					(APB2_BASE_ADDR + 0x2000UL + 0x100UL)	/*ADC 2 Base adress		*/
-#define ADC3_BASE_ADDR					(APB2_BASE_ADDR + 0x2000UL + 0x200UL)	/*ADC 3 Base adress		*/
+#define ADC1_BASE_ADDR					(APB2_BASE_ADDR + 0x2000UL)				/*ADC 1 	Base address	*/
+#define ADC2_BASE_ADDR					(APB2_BASE_ADDR + 0x2000UL + 0x100UL)	/*ADC 2 	Base address	*/
+#define ADC3_BASE_ADDR					(APB2_BASE_ADDR + 0x2000UL + 0x200UL)	/*ADC 3 	Base address	*/
 
-#define SPI1_BASE_ADDR					(APB2_BASE_ADDR + 0x3000UL)				/*SPI 1 Base adress		*/
-#define SPI4_BASE_ADDR					(APB2_BASE_ADDR + 0x3400UL)				/*SPI 4 Base adress		*/
+#define SPI1_BASE_ADDR					(APB2_BASE_ADDR + 0x3000UL)				/*SPI 1 	Base address	*/
+#define SPI4_BASE_ADDR					(APB2_BASE_ADDR + 0x3400UL)				/*SPI 4 	Base address	*/
 
-#define SYSCFG_BASE_ADDR				(APB2_BASE_ADDR + 0x3800UL)				/*SYSCFG  Base adress	*/
+#define SYSCFG_BASE_ADDR				(APB2_BASE_ADDR + 0x3800UL)				/*SYSCFG  	Base address	*/
 
-#define EXTI_BASE_ADDR 					(APB2_BASE_ADDR + 0x3C00UL)				/*EXTI  Base adress		*/
+#define EXTI_BASE_ADDR 					(APB2_BASE_ADDR + 0x3C00UL)				/*EXTI  	Base address	*/
 
 /*
  *  AHB1 Bus Perhipherals Base Adresses
@@ -101,44 +107,44 @@ typedef struct
 
 typedef struct
 {
-	__OI uint32_t CR;
-	__OI uint32_t PLLCFGR;
-	__OI uint32_t CFGR;
-	__OI uint32_t CIR;
-	__OI uint32_t AHB1RSTR;
-	__OI uint32_t AHB2RSTR;
-	__OI uint32_t AHB3RSTR;
+	__OI uint32_t CR;				/*!< RCC clock control register 									Address offset = 0x00*/
+	__OI uint32_t PLLCFGR;			/*!< RCC PLL configuration register 								Address offset = 0x04*/
+	__OI uint32_t CFGR;				/*!< RCC clock configuration register 								Address offset = 0x08*/
+	__OI uint32_t CIR;				/*!< RCC clock interrupt register 									Address offset = 0x0C*/
+	__OI uint32_t AHB1RSTR;			/*!< RCC AHB1 peripheral reset register 							Address offset = 0x10*/
+	__OI uint32_t AHB2RSTR;			/*!< RCC AHB2 peripheral reset register 							Address offset = 0x14*/
+	__OI uint32_t AHB3RSTR;			/*!< RCC AHB3 peripheral reset register 							Address offset = 0x18*/
 	__OI uint32_t RESERVED0;
-	__OI uint32_t APB1RSTR;
-	__OI uint32_t APB2RSTR;
+	__OI uint32_t APB1RSTR;			/*!< RCC APB1 peripheral reset register 							Address offset = 0x20*/
+	__OI uint32_t APB2RSTR;			/*!< RCC APB2 peripheral reset register 							Address offset = 0x24*/
 	__OI uint32_t RESERVED1;
 	__OI uint32_t RESERVED2;
-	__OI uint32_t AHB1ENR;
-	__OI uint32_t AHB2ENR;
-	__OI uint32_t AHB3ENR;
+	__OI uint32_t AHB1ENR;			/*!< RCC AHB1 peripheral clock enable register 						Address offset = 0x30*/
+	__OI uint32_t AHB2ENR;			/*!< RCC AHB2 peripheral clock enable register 						Address offset = 0x34*/
+	__OI uint32_t AHB3ENR;			/*!< RCC AHB3 peripheral clock enable register 						Address offset = 0x38*/
 	__OI uint32_t RESERVED3;
-	__OI uint32_t APB1ENR;
-	__OI uint32_t APB2ENR;
+	__OI uint32_t APB1ENR;			/*!< RCC APB1 peripheral clock enable register 						Address offset = 0x40*/
+	__OI uint32_t APB2ENR;			/*!< RCC APB2 peripheral clock enable register 						Address offset = 0x44*/
 	__OI uint32_t RESERVED4;
 	__OI uint32_t RESERVED5;
-	__OI uint32_t AHB1LPENR;
-	__OI uint32_t AHB2LPENR;
-	__OI uint32_t AHB3LPENR;
-	__OI uint32_t RESERVED6;
-	__OI uint32_t APB1LPENR;
-	__OI uint32_t APB2LPENR;
+	__OI uint32_t AHB1LPENR;		/*!< RCC AHB1 peripheral clock enable in low power mode register 	Address offset = 0x50*/
+	__OI uint32_t AHB2LPENR;		/*!< RCC AHB2 peripheral clock enable in low power mode register 	Address offset = 0x54*/
+	__OI uint32_t AHB3LPENR;		/*!< RCC AHB3 peripheral clock enable in low power mode register 	Address offset = 0x58*/
+	__OI uint32_t RESERVED6;		/*!< RCC clock control register Address offset = 0x00*/
+	__OI uint32_t APB1LPENR;		/*!< RCC APB1 peripheral clock enable in low power mode register 	Address offset = 0x60*/
+	__OI uint32_t APB2LPENR;		/*!< RCC APB2 peripheral clock enabled in low power mode register 	Address offset = 0x64*/
 	__OI uint32_t RESERVED7;
 	__OI uint32_t RESERVED8;
-	__OI uint32_t BDCR;
-	__OI uint32_t CSR;
+	__OI uint32_t BDCR;				/*!< RCC Backup domain control register 							Address offset = 0x70*/
+	__OI uint32_t CSR;				/*!< RCC clock control & status register 							Address offset = 0x74*/
 	__OI uint32_t RESERVED9;
 	__OI uint32_t RESERVED10;
-	__OI uint32_t SSCGR;
-	__OI uint32_t PLLI2SCFGR;
-	__OI uint32_t PLLSAICFGR;
-	__OI uint32_t DCKCFGR;
-	__OI uint32_t CKGATENR;
-	__OI uint32_t DCKCFGR2;
+	__OI uint32_t SSCGR;			/*!< RCC spread spectrum clock generation register 					Address offset = 0x80*/
+	__OI uint32_t PLLI2SCFGR;		/*!< RRCC PLLI2S configuration register 							Address offset = 0x84*/
+	__OI uint32_t PLLSAICFGR;		/*!< RCC PLL configuration register 								Address offset = 0x88*/
+	__OI uint32_t DCKCFGR;			/*!< RCC dedicated clock configuration register 					Address offset = 0x8C*/
+	__OI uint32_t CKGATENR;			/*!< RCC clocks gated enable register 								Address offset = 0x90*/
+	__OI uint32_t DCKCFGR2;			/*!< RCC dedicated clocks configuration register 2 					Address offset = 0x94*/
 }RCC_TypeDef_t;
 
 #define GPIOA							((GPIO_TypDef_t *)(GPIOA_BASE_ADDR))
@@ -152,7 +158,36 @@ typedef struct
 
 #define RCC								((RCC_TypeDef_t *)(RCC_BASE_ADDR)  )
 
+#define RCC_AHB1ENR_GPIOAEN_Pos			(0U)
+#define RCC_AHB1ENR_GPIOAEN_Msk			(0x1 << RCC_AHB1ENR_GPIOAEN_Pos)
+#define RCC_AHB1ENR_GPIOAEN				RCC_AHB1ENR_GPIOAEN_Msk
 
+#define RCC_AHB1ENR_GPIOBEN_Pos         (1U)
+#define RCC_AHB1ENR_GPIOBEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)
+#define RCC_AHB1ENR_GPIOBEN				RCC_AHB1ENR_GPIOBEN_Msk
 
+#define RCC_AHB1ENR_GPIOCEN_Pos         (2U)
+#define RCC_AHB1ENR_GPIOCEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)
+#define RCC_AHB1ENR_GPIOCEN				RCC_AHB1ENR_GPIOBEN_Msk
+
+#define RCC_AHB1ENR_GPIODEN_Pos         (3U)
+#define RCC_AHB1ENR_GPIODEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)
+#define RCC_AHB1ENR_GPIODEN				RCC_AHB1ENR_GPIOBEN_Msk
+
+#define RCC_AHB1ENR_GPIOEEN_Pos         (4U)
+#define RCC_AHB1ENR_GPIOEEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)
+#define RCC_AHB1ENR_GPIOEEN				RCC_AHB1ENR_GPIOBEN_Msk
+
+#define RCC_AHB1ENR_GPIOFEN_Pos         (5U)
+#define RCC_AHB1ENR_GPIOFEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)
+#define RCC_AHB1ENR_GPIOFEN				RCC_AHB1ENR_GPIOBEN_Msk
+
+#define RCC_AHB1ENR_GPIOGEN_Pos         (6U)
+#define RCC_AHB1ENR_GPIOGEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)
+#define RCC_AHB1ENR_GPIOGEN				RCC_AHB1ENR_GPIOBEN_Msk
+
+#define RCC_AHB1ENR_GPIOHEN_Pos         (7U)
+#define RCC_AHB1ENR_GPIOHEN_Msk			(0x1 << RCC_AHB1ENR_GPIOBEN_Pos)
+#define RCC_AHB1ENR_GPIOHEN				RCC_AHB1ENR_GPIOBEN_Msk
 
 #endif /* INC_STM32F446XX_H_ */
