@@ -20,35 +20,32 @@
 #include "RCC.h"
 #include "GPIO.h"
 
+void ledInit(void);
+void delay(int i);
 
 int main(void)
 {
+	ledInit();
+	while(1)
+	{
+		GPIO_Toggle_Pin(GPIOA, GPIO_PIN_5);
+		delay(1000000);
+	}
 
 
+}
+void ledInit(void)
+{
 	RCC_GPIOA_CLK_ENB();
 
 	GPIO_InitTypeDef_t config;
-	config.Mode = OUTPUT;
-	config.Otype = OPUSHPULL;
-	config.Speed = HSPEED;
+	config.Mode = GPIO_MODE_OUTPUT;
+	config.Otype = GPIO_OTYPE_PP;
+	config.Speed = GPIO_SPEED_LSPEED;
 	config.PuPD = 0;
-
 	GPIO_Init(GPIOA, GPIO_PIN_5, &config);
-	while(1)
-	{
-		int i = 1000000;
-		GPIO_Pin_Write(GPIOA, GPIO_PIN_5, GPIO_PIN_ENABLE);
-		while(i>0)
-		{
-			i--;
-		}
-		GPIO_Pin_Write(GPIOA, GPIO_PIN_5, GPIO_PIN_DISABLE);
-		 i = 1000000;
-		while(i>0)
-		{
-			i--;
-		}
-	}
-
-	for(;;);
+}
+void delay(int i)
+{
+	while(i--);
 }

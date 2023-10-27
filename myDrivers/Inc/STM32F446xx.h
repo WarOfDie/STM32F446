@@ -21,9 +21,9 @@
  * MEMORY BASE ADDRESS
  */
 
-#define FLASH_BASE_ADDR                (0x08000000UL)         	 		     /*FLASH BASE ADDRESS Capacity up to 512 KBytes*/
-#define SRAM1_BASE_ADDR                (0x20000000UL)         		   		 /*SRAM1 BASE ADDRESS 116 KBytes*/
-#define SRAM2_BASE_ADDR                (0x2001C000UL) 		 			     /*SRAM2 BASE ADDRESS 16 KBytes*/
+#define FLASH_BASE_ADDR               	(0x08000000UL)         	 		     /*FLASH BASE ADDRESS Capacity up to 512 KBytes*/
+#define SRAM1_BASE_ADDR              	(0x20000000UL)         		   		 /*SRAM1 BASE ADDRESS 116 KBytes*/
+#define SRAM2_BASE_ADDR              	(0x2001C000UL) 		 			     /*SRAM2 BASE ADDRESS 16 KBytes*/
 
 /*
  * Perhipheral base adresses

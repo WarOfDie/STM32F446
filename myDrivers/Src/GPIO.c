@@ -29,7 +29,7 @@ void GPIO_Init(GPIO_TypDef_t *GPIOx, uint16_t GPIO_PinNumber, GPIO_InitTypeDef_t
 
 			GPIOx->MODER = tempValue;
 
-			if((GPIO_ConfInit->Mode == OUTPUT) || (GPIO_ConfInit->Mode == ALTERNATE))
+			if((GPIO_ConfInit->Mode == GPIO_MODE_OUTPUT) || (GPIO_ConfInit->Mode == GPIO_MODE_ALTERNATE))
 			{
 				/*PUSH PULL, OPEN DRAIN CONFIG */
 
@@ -57,15 +57,7 @@ void GPIO_Init(GPIO_TypDef_t *GPIOx, uint16_t GPIO_PinNumber, GPIO_InitTypeDef_t
 
 			GPIOx->PUPDR = tempValue;
 		}
-
-
-
 	}
-
-
-
-
-
 }
 /**
  * @brief  Sets or resets the pin on the GPIx port.
@@ -124,4 +116,20 @@ void GPIO_Lock_Pin(GPIO_TypDef_t *GPIOx, uint16_t GPIO_PinNumber)
 	tempValue = GPIOx->LCKR;
 
 }
+void GPIO_Toggle_Pin(GPIO_TypDef_t *GPIOx,uint16_t GPIO_PinNumber)
+{
+	uint32_t tempValue = 0;
 
+	tempValue = GPIOx->ODR;
+	tempValue &= GPIO_PinNumber;
+
+	if(tempValue == GPIO_PinNumber)
+	{
+		GPIOx->BSRR = (GPIO_PinNumber << 16U);
+	}
+	else
+	{
+		GPIOx->BSRR = GPIO_PinNumber;
+	}
+
+}

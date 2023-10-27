@@ -37,35 +37,35 @@
  *
  */
 
-#define INPUT 					(0x0U)
-#define OUTPUT					(0x1U)
-#define ALTERNATE				(0x2U)
-#define ANALOG					(0x3U)
+#define GPIO_MODE_INPUT 					(0x0U)
+#define GPIO_MODE_OUTPUT					(0x1U)
+#define GPIO_MODE_ALTERNATE					(0x2U)
+#define GPIO_MODE_ANALOG					(0x3U)
 
 /*
  *@def_group GPIO_OTYPER
  *
  */
-#define OPUSHPULL 				(0x0U)
-#define OPENDRAIN				(0x1U)
+#define GPIO_OTYPE_PP						(0x0U)
+#define GPIO_OTYPE_OD						(0x1U)
 
 
 /*
  *@def_group GPIO PULL UP, PULL DOWN
  *
  */
-#define NPND					(0x0U)
-#define PULLUP 					(0x1U)
-#define PULLDOWN				(0x2U)
+#define GPIO_PUPDR_NPND						(0x0U)
+#define GPIO_PUPDR_PULLUP 					(0x1U)
+#define GPIO_PUPDR_PULLDOWN					(0x2U)
 
 /*
  *@def_group GPIO SPEED MODE
  *
  */
-#define LSPEED					(0x0U)			//LOW SPEED
-#define MSPEED					(0x1U)			//MEDIUM SPEED
-#define FSPEED					(0x2U)			//FAST SPEED
-#define HSPEED					(0x3U)			//HIGH SPEED
+#define GPIO_SPEED_LSPEED					(0x0U)			//LOW SPEED
+#define GPIO_SPEED_MSPEED					(0x1U)			//MEDIUM SPEED
+#define GPIO_SPEED_FSPEED					(0x2U)			//FAST SPEED
+#define GPIO_SPEED_HSPEED					(0x3U)			//HIGH SPEED
 
 
 typedef enum
@@ -89,6 +89,8 @@ void GPIO_Init(GPIO_TypDef_t *GPIOx, uint16_t GPIO_PinNumber, GPIO_InitTypeDef_t
 void GPIO_Pin_Write(GPIO_TypDef_t *GPIOx, uint16_t GPIO_PinNumber, GPIO_PinTypeDef_t PinState);
 GPIO_PinTypeDef_t GPIO_Pin_Read(GPIO_TypDef_t *GPIOx, uint16_t GPIO_PinNumber);
 void GPIO_Lock_Pin(GPIO_TypDef_t *GPIOx, uint16_t GPIO_PinNumber);
+void GPIO_Toggle_Pin(GPIO_TypDef_t *GPIOx,uint16_t GPIO_PinNumber);
+
 
 
 
