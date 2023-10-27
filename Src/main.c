@@ -23,8 +23,32 @@
 
 int main(void)
 {
+
+
 	RCC_GPIOA_CLK_ENB();
-	GPIO_Pin_Write(GPIOA, GPIO_PIN_1, GPIO_PIN_ENABLE);
+
+	GPIO_InitTypeDef_t config;
+	config.Mode = OUTPUT;
+	config.Otype = OPUSHPULL;
+	config.Speed = HSPEED;
+	config.PuPD = 0;
+
+	GPIO_Init(GPIOA, GPIO_PIN_5, &config);
+	while(1)
+	{
+		int i = 1000000;
+		GPIO_Pin_Write(GPIOA, GPIO_PIN_5, GPIO_PIN_ENABLE);
+		while(i>0)
+		{
+			i--;
+		}
+		GPIO_Pin_Write(GPIOA, GPIO_PIN_5, GPIO_PIN_DISABLE);
+		 i = 1000000;
+		while(i>0)
+		{
+			i--;
+		}
+	}
 
 	for(;;);
 }

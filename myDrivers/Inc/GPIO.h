@@ -32,6 +32,42 @@
 #define GPIO_PIN_15   			(uint16_t)(0x4000)		/*!< GPIO Pin 14 Selected  */
 #define GPIO_PIN_ALL			(uint16_t)(0xFFFF)		/*!< GPIO Pin All Selected */
 
+/*
+ *@def_group GPIO_MODE
+ *
+ */
+
+#define INPUT 					(0x0U)
+#define OUTPUT					(0x1U)
+#define ALTERNATE				(0x2U)
+#define ANALOG					(0x3U)
+
+/*
+ *@def_group GPIO_OTYPER
+ *
+ */
+#define OPUSHPULL 				(0x0U)
+#define OPENDRAIN				(0x1U)
+
+
+/*
+ *@def_group GPIO PULL UP, PULL DOWN
+ *
+ */
+#define NPND					(0x0U)
+#define PULLUP 					(0x1U)
+#define PULLDOWN				(0x2U)
+
+/*
+ *@def_group GPIO SPEED MODE
+ *
+ */
+#define LSPEED					(0x0U)			//LOW SPEED
+#define MSPEED					(0x1U)			//MEDIUM SPEED
+#define FSPEED					(0x2U)			//FAST SPEED
+#define HSPEED					(0x3U)			//HIGH SPEED
+
+
 typedef enum
 {
 	GPIO_PIN_DISABLE = 0x0u,
@@ -41,7 +77,7 @@ typedef enum
 
 typedef struct
 {
-	uint32_t Mode;
+	uint32_t Mode;			//@def_group GPIO_MODE
 	uint32_t PuPD;
 	uint32_t Speed;
 	uint32_t Otype;
@@ -49,8 +85,10 @@ typedef struct
 
 }GPIO_InitTypeDef_t;
 
-
+void GPIO_Init(GPIO_TypDef_t *GPIOx, uint16_t GPIO_PinNumber, GPIO_InitTypeDef_t *GPIO_ConfInit);
 void GPIO_Pin_Write(GPIO_TypDef_t *GPIOx, uint16_t GPIO_PinNumber, GPIO_PinTypeDef_t PinState);
+GPIO_PinTypeDef_t GPIO_Pin_Read(GPIO_TypDef_t *GPIOx, uint16_t GPIO_PinNumber);
+void GPIO_Lock_Pin(GPIO_TypDef_t *GPIOx, uint16_t GPIO_PinNumber);
 
 
 

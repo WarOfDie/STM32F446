@@ -95,6 +95,7 @@
 typedef struct
 {
 	__OI uint32_t MODER;
+	__OI uint32_t OTYPER;
 	__OI uint32_t OSPEEDER;
 	__OI uint32_t PUPDR;
 	__OI uint32_t IDR;
