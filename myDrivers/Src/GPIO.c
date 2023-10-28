@@ -118,18 +118,9 @@ void GPIO_Lock_Pin(GPIO_TypDef_t *GPIOx, uint16_t GPIO_PinNumber)
 }
 void GPIO_Toggle_Pin(GPIO_TypDef_t *GPIOx,uint16_t GPIO_PinNumber)
 {
-	uint32_t tempValue = 0;
-
+	uint32_t tempValue;
 	tempValue = GPIOx->ODR;
-	tempValue &= GPIO_PinNumber;
+	GPIOx->BSRR = ((tempValue & GPIO_PinNumber) << 16u) | (~tempValue & GPIO_PinNumber);
 
-	if(tempValue == GPIO_PinNumber)
-	{
-		GPIOx->BSRR = (GPIO_PinNumber << 16U);
-	}
-	else
-	{
-		GPIOx->BSRR = GPIO_PinNumber;
-	}
 
 }
