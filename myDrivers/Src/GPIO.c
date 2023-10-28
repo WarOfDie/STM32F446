@@ -90,7 +90,7 @@ void GPIO_Pin_Write(GPIO_TypDef_t *GPIOx, uint16_t GPIO_PinNumber, GPIO_PinTypeD
 GPIO_PinTypeDef_t GPIO_Pin_Read(GPIO_TypDef_t *GPIOx, uint16_t GPIO_PinNumber)
 {
 	GPIO_PinTypeDef_t bitStatus = GPIO_PIN_DISABLE;
-	if(GPIOx->IDR &= GPIO_PinNumber != GPIO_PIN_DISABLE)
+	if((GPIOx->IDR &= GPIO_PinNumber) != GPIO_PIN_DISABLE)
 	{
 		bitStatus = GPIO_PIN_ENABLE;
 	}
